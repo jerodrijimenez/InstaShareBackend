@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstaShareAuthService", "InstaShareAuthService\InstaShareAuthService.csproj", "{660855CD-5AF1-4743-B8FA-64F7D1B77FB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstaShareApiGateway", "InstaShareApiGateway\InstaShareApiGateway.csproj", "{66F462F2-4102-4596-94F9-D9F3E963640D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstaShareUploadFileService", "InstaShareUploadFileService\InstaShareUploadFileService.csproj", "{BE079F31-7528-41E7-A804-C42490B9BB34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstaShareCompressFileService", "InstaShareCompressFileService\InstaShareCompressFileService.csproj", "{C25967C6-8403-4FE6-8C68-8F0DCEB699A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstaShareFileService", "InstaShareFileService\InstaShareFileService.csproj", "{B8FAF3E5-2AD9-451B-A7B7-292B70C24CE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D6BD2C2-6A0E-4948-B63F-E8EE66B97864}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{660855CD-5AF1-4743-B8FA-64F7D1B77FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{660855CD-5AF1-4743-B8FA-64F7D1B77FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{660855CD-5AF1-4743-B8FA-64F7D1B77FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{660855CD-5AF1-4743-B8FA-64F7D1B77FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F462F2-4102-4596-94F9-D9F3E963640D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F462F2-4102-4596-94F9-D9F3E963640D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F462F2-4102-4596-94F9-D9F3E963640D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F462F2-4102-4596-94F9-D9F3E963640D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE079F31-7528-41E7-A804-C42490B9BB34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE079F31-7528-41E7-A804-C42490B9BB34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE079F31-7528-41E7-A804-C42490B9BB34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE079F31-7528-41E7-A804-C42490B9BB34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25967C6-8403-4FE6-8C68-8F0DCEB699A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25967C6-8403-4FE6-8C68-8F0DCEB699A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25967C6-8403-4FE6-8C68-8F0DCEB699A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25967C6-8403-4FE6-8C68-8F0DCEB699A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8FAF3E5-2AD9-451B-A7B7-292B70C24CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FAF3E5-2AD9-451B-A7B7-292B70C24CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FAF3E5-2AD9-451B-A7B7-292B70C24CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FAF3E5-2AD9-451B-A7B7-292B70C24CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9020BDC5-0A06-49A7-B5E3-85A827E9FBFC}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+@InstaShareApiGateway_HostAddress = http://localhost:5122
+
+GET {{InstaShareApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

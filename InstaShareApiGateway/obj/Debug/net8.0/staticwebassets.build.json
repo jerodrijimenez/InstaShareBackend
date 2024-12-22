@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bu6bIVfSOqS4p3l9riQPBG04veYf4b6kreXO+8DZSGM=",
+  "Source": "InstaShareApiGateway",
+  "BasePath": "_content/InstaShareApiGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

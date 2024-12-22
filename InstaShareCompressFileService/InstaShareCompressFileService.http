@@ -1,0 +1,6 @@
+@InstaShareCompressFileService_HostAddress = http://localhost:5135
+
+GET {{InstaShareCompressFileService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

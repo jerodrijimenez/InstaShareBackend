@@ -1,0 +1,130 @@
+
+services:
+
+  # Volumen compartido
+  sharedvolume:
+    image: busybox
+    container_name: sharedvolume
+    volumes:
+      - /data/shared:/data/shared
+    command: ["sh", "-c", "mkdir -p /data/shared/uploads /data/shared/compressFiles && tail -f /dev/null"]
+    networks:
+      - instashare_network
+
+  # Api Gateway
+  instashareapigateway:
+    build:
+      context: ./InstaShareApiGateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - instashareauthservice
+      - instashareuploadfileservice
+      - instasharecompressfileservice
+      - instasharefileservice
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=InstaShare;User=sa;Password=<Admin123*>;Encrypt=false;
+    networks:
+      - instashare_network
+
+  # Auth Service
+  instashareauthservice:
+    build:
+      context: ./InstaShareAuthService
+    ports:
+      - "5001:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=InstaShare;User=sa;Password=<Admin123*>;Encrypt=false;
+    networks:
+      - instashare_network
+
+  # Upload Files Service
+  instashareuploadfileservice:
+    build:
+      context: ./InstaShareUploadFileService
+    ports:
+      - "5002:8080"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+      - sharedvolume
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=InstaShare;User=sa;Password=<Admin123*>;Encrypt=false;
+    volumes:
+      - sharedvolume:/data/shared
+    networks:
+      - instashare_network
+
+  # Compress Files Service
+  instasharecompressfileservice:
+    build:
+      context: ./InstaShareCompressFileService
+    ports:
+      - "5003:8080"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+      - sharedvolume
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=InstaShare;User=sa;Password=<Admin123*>;Encrypt=false;
+    volumes:
+      - sharedvolume:/data/shared
+    networks:
+      - instashare_network
+
+  # File Service
+  instasharefileservice:
+    build:
+      context: ./InstaShareFileService
+    ports:
+      - "5004:8080"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+      - sharedvolume
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal;Database=InstaShare;User=sa;Password=<Admin123*>;Encrypt=false;
+    volumes:
+      - sharedvolume:/data/shared
+    networks:
+      - instashare_network
+
+  # RabbitMQ
+  rabbitmq:
+    image: rabbitmq:4.0.4-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672" 
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - instashare_network
+
+  # SQL Server
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Admin123*
+    networks:
+      - instashare_network
+
+volumes:
+  sharedvolume:
+
+networks:
+  instashare_network:
+    driver: bridge
